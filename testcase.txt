@@ -1,0 +1,64 @@
+//testcase of 99 questions
+//http://www.haskell.org/haskellwiki/99_questions/1_to_10
+//Find the last element of a list.
+def last(ls:int*):int? =>
+	var ret:int? = null
+	ls.for(item)=>
+		ret = item
+	ret
+	
+//Find the last but one element of a list.
+def last_but_one(ls:int*):int? =>
+	var last0:int? = null
+	var last1:int? = null
+	ls.for(item)=>
+		last1 = last0
+		last0 = item
+	last1
+	
+//Find the K'th element of a list
+def k_th(ls:int*, k:int):int? =>
+    var idx = 0
+	var ret = ls.find(item)=>
+		var c = idx
+		idx.add 1
+		c.eq k
+	
+//Find the number of elements of a list.
+def number(ls:int*):int? =>
+    var count = 0
+	ls.for(item)=>
+		count.add 1
+	count
+	
+//Reverse a list.
+def reverse(ls:int*):int* =>
+	var ret:int[]
+	ls.for(item)=>
+		ret.append item
+	ret
+	
+//Find out whether a list is a palindrome. A palindrome can be read forward or backward; e.g. (x a m a x).
+def is_palindrome(ls:int*):bool =>
+	var l1 = ls
+	var l2 = ls.reverse
+	var ret = true
+	ls.while(item1)=>
+		l2.while(item2)=>
+			var is_true = item1.eq item22.true
+			is_true.false_case()=>
+				ret = false
+	ret
+	
+	
+//Flatten a nested list structure.
+enum nested = 
+	nested*
+	int
+
+def flatten(ls:nested ):int* =>
+	ls.case(_0 items:nested*)=>
+		item.lazy_for(item:nested)=>
+			item
+	.case(_1 item:int)=>
+		item
